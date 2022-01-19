@@ -7,12 +7,12 @@ import { Program, Provider, web3 } from '@project-serum/anchor';
 import kp from './keypair.json';
 
 // SystemProgram is a reference to the Solana runtime!
-const { SystemProgram } = web3;
+const { SystemProgram, Keypair } = web3;
 
 // Create a keypair for the account that will hold the GIF data.
 const arr = Object.values(kp._keypair.secretKey)
 const secret = new Uint8Array(arr)
-const baseAccount = web3.Keypair.fromSecretKey(secret)
+const baseAccount = Keypair.fromSecretKey(secret)
 
 // Get our program's id from the IDL file.
 const programID = new PublicKey(idl.metadata.address);
@@ -52,7 +52,7 @@ const App = () => {
         console.log('wallet not found.');
       }
     } catch (e) {
-      console.log(e);
+      if (e.code !== 4001) console.log(e);
     }
   }
 
@@ -95,7 +95,7 @@ const App = () => {
     }
   };
 
-  const inputHandler = (event) => {
+  const inputHandler = async (event) => {
     const { value } = event.target;
     setInputVal(value);
   }

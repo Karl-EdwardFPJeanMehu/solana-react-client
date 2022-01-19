@@ -1,5 +1,5 @@
 {
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"name": "myepicproject",
 	"instructions": [
 		{
@@ -30,6 +30,11 @@
 					"name": "baseAccount",
 					"isMut": true,
 					"isSigner": false
+				},
+				{
+					"name": "user",
+					"isMut": true,
+					"isSigner": true
 				}
 			],
 			"args": [
@@ -81,6 +86,6 @@
 		}
 	],
 	"metadata": {
-		"address": "GnjffUQbhCfiPk2ne7rW7uakCiBRhV1FMwUK12XUDSS7"
+		"address": "4LPNgr6PDV7eSS6UiqVoV6bhqA9LZ2CmszGg85g2JSDw"
 	}
 }
