@@ -63,7 +63,9 @@ const App = () => {
 
       if (solana) {
         const response = await solana.connect();
-        console.log('You are now connected, ', response.publicKey.toString());
+        const wallet = response.publicKey.toString();
+        setWalletAddress(wallet);
+        console.log('You are not connected, ', wallet);
       }
     } catch (e) {
       console.log(e);
